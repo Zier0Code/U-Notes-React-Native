@@ -1,4 +1,5 @@
 import {
+  Image,
   Modal,
   StyleSheet,
   Text,
@@ -13,6 +14,8 @@ const AddNoteModal = ({
   newNote,
   setNewNote,
   addNote,
+  setNoteTitle,
+  noteTitle,
 }) => {
   return (
     <Modal
@@ -23,10 +26,31 @@ const AddNoteModal = ({
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
+          <Image
+            source={require("../../assets/images/notes1.png")}
+            style={{
+              width: 80,
+              height: 80,
+              alignSelf: "center",
+              backgroundColor: "#f8f9fa",
+
+              marginBottom: 15,
+            }}
+          />
           <Text style={styles.modalTitle}>Add a New Note</Text>
+          <Text style={styles.labels}>Title:</Text>
           <TextInput
             style={styles.input}
-            placeholder="Enter note..."
+            placeholder="Enter Note Title..."
+            placeholderTextColor="#aaa"
+            value={noteTitle}
+            onChangeText={setNoteTitle}
+          />
+          <Text style={styles.labels}>Content:</Text>
+          <TextInput
+            multiline
+            style={styles.textArea}
+            placeholder="Enter Note Description..."
             placeholderTextColor="#aaa"
             value={newNote}
             onChangeText={setNewNote}
@@ -50,6 +74,20 @@ const AddNoteModal = ({
 };
 
 const styles = StyleSheet.create({
+  labels: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#3C3B3B",
+    letterSpacing: 0.5,
+  },
+  textArea: {
+    height: 180,
+    textAlignVertical: "top",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    padding: 10,
+  },
   modalOverlay: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.5)",
@@ -77,20 +115,25 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   modalButtons: {
+    marginTop: 30,
     flexDirection: "row",
     justifyContent: "space-between",
   },
   cancelButton: {
-    backgroundColor: "#ccc",
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: 5,
     flex: 1,
     marginRight: 10,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3, // For Android shadow
   },
   cancelButtonText: {
     fontSize: 16,
-    color: "#333",
+    color: "#3C3B3B",
   },
   saveButton: {
     backgroundColor: "#007bff",
@@ -100,6 +143,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   saveButtonText: {
+    fontWeight: "bold",
     fontSize: 16,
     color: "#fff",
   },

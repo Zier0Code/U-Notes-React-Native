@@ -7,8 +7,13 @@ const NoteList = ({ notes, onDelete, onEdit }) => {
       <FlatList
         data={notes}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <NoteItem note={item} onDelete={onDelete} onEdit={onEdit} />
+        renderItem={({ item, index }) => (
+          <NoteItem
+            note={item}
+            onDelete={onDelete}
+            onEdit={onEdit}
+            noteIndex={index}
+          />
         )}
       />
     </View>

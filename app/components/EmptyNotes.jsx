@@ -7,6 +7,8 @@ const EmptyNotes = ({
   newNote,
   setNewNote,
   addNote,
+  setNoteTitle,
+  noteTitle,
 }) => {
   const router = useRouter();
   return (
@@ -30,6 +32,8 @@ const EmptyNotes = ({
         newNote={newNote}
         setNewNote={setNewNote}
         addNote={addNote}
+        setNoteTitle={setNoteTitle}
+        noteTitle={noteTitle}
       />
     </View>
   );

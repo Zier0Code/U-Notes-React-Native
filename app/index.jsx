@@ -29,6 +29,7 @@ const HomeScreen = () => {
   // Local state for modal
   const [modalVisible, setModalVisible] = useState(false);
   const [newNote, setNewNote] = useState("");
+  const [noteTitle, setNoteTitle] = useState("");
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -39,14 +40,15 @@ const HomeScreen = () => {
 
   // Add new note function
   const handleAddNote = () => {
-    if (newNote.trim() === "") return; // Prevent adding empty notes
+    if (newNote.trim() === "" || noteTitle === "") return; // Prevent adding empty notes
 
     dispatch(
       addNote({
-        title: `Note ${notes.length + 1}`,
+        title: noteTitle,
         content: newNote,
       })
     );
+    setNoteTitle("");
     setNewNote("");
     setModalVisible(false);
   };
@@ -109,6 +111,8 @@ const HomeScreen = () => {
         newNote={newNote}
         setNewNote={setNewNote}
         addNote={handleAddNote}
+        setNoteTitle={setNoteTitle}
+        noteTitle={noteTitle}
       />
     );
   }
@@ -142,6 +146,8 @@ const HomeScreen = () => {
           newNote={newNote}
           setNewNote={setNewNote}
           addNote={handleAddNote}
+          setNoteTitle={setNoteTitle}
+          noteTitle={noteTitle}
         />
       </View>
 

@@ -35,8 +35,19 @@ const HeaderLogout = () => {
   if (!isLoggedIn) return null;
 
   return (
-    <TouchableOpacity onPress={handleLogout} style={{ marginRight: 15 }}>
-      <Text style={{ color: "#fff", fontSize: 16 }}>Logout</Text>
+    <TouchableOpacity onPress={handleLogout}>
+      <Text
+        style={{
+          color: "#fff",
+          fontSize: 16,
+          backgroundColor: "#ff0000",
+          padding: 5,
+          fontWeight: "bold",
+          borderRadius: 5,
+        }}
+      >
+        Logout
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -52,7 +63,7 @@ const RootLayout = () => {
             headerTitleStyle: {
               fontWeight: "bold",
               fontSize: 24,
-              fontFamily: "System",
+              fontFamily: "JotiOne-Regular",
             },
 
             contentStyle: {

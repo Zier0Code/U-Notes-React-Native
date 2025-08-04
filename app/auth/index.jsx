@@ -65,7 +65,6 @@ const LoginScreen = () => {
           value={username}
           onChangeText={setUsername}
           autoCapitalize="none"
-          autoFocus
         />
       </View>
       <View style={styles.inputContainer}>
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
   },
   loginButton: {
-    backgroundColor: "#322FF5",
+    backgroundColor: "#007bff",
     padding: 10,
     borderRadius: 8,
     width: "100%",

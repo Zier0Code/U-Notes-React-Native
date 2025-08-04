@@ -17,7 +17,7 @@ const notesSlice = createSlice({
     addNote: (state, action) => {
       const newNote = {
         id: Date.now(), // Use timestamp for unique ID
-        title: action.payload.title || `Note ${state.notes.length + 1}`,
+        title: action.payload.title,
         content: action.payload.content,
         createdAt: new Date().toISOString(),
       };
