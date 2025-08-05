@@ -57,6 +57,7 @@ const LoginScreen = () => {
       <View style={[styles.baseBox, styles.box4]}></View>
       <View style={[styles.baseBox, styles.box5]}></View>
       <Text style={styles.title}>U-Notes</Text>
+      <Text style={styles.labels}>Username:</Text>
       <View style={styles.inputContainer}>
         <Text style={styles.icon}>👤</Text>
         <TextInput
@@ -67,6 +68,7 @@ const LoginScreen = () => {
           autoCapitalize="none"
         />
       </View>
+      <Text style={styles.labels}>Password:</Text>
       <View style={styles.inputContainer}>
         <Text style={styles.icon}>🔒</Text>
         <TextInput
@@ -74,7 +76,6 @@ const LoginScreen = () => {
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
-          autoCapitalize="none"
           secureTextEntry
         />
       </View>
@@ -91,6 +92,12 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  labels: {
+    fontSize: 12,
+    fontWeight: "bold",
+    marginBottom: 5,
+    color: "#333",
+  },
   container: {
     flex: 1,
     justifyContent: "center",
@@ -163,6 +170,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: "#fff",
     fontSize: 16,
+    color: "#000",
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 5,

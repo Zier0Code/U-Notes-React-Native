@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.zier0code.notesapp"
     },
     "web": {
       "bundler": "metro",
@@ -38,6 +39,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f2bdccf6-fa4a-4e15-b553-65f4886b6f3e"
+      }
     }
   }
 }

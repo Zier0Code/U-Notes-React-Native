@@ -121,10 +121,11 @@ const HomeScreen = () => {
       {/* Search bar for filtering notes */}
       <View style={styles.searchContainer}>
         <View style={styles.searchInputContainer}>
-          <Text style={styles.searchIcon}>🔍</Text>
+          <Text style={styles.searchIcon}>
+            🔍 {searchQuery === "" ? "Search by Title" : ""}
+          </Text>
           <TextInput
             style={styles.searchInput}
-            placeholder="Search by title or id"
             value={searchQuery}
             onChangeText={handleSearchChange}
             clearButtonMode="while-editing"
@@ -164,41 +165,7 @@ const HomeScreen = () => {
           onDelete={handleDeleteNote}
           onEdit={handleEditNote}
         />
-
-        // <FlatList
-        //   data={filteredNotes}
-        //   keyExtractor={(item) => item.id.toString()}
-        //   renderItem={({ item }) => (
-        //     <View style={styles.noteContainer} key={item.id}>
-        //       <Text>{item.title}</Text>
-        //       <Text>{item.content}</Text>
-        //       <View
-        //         style={{
-        //           flexDirection: "row",
-        //           marginTop: 10,
-        //           justifyContent: "flex-end",
-        //         }}
-        //       >
-        //         <TouchableOpacity
-        //           onPress={() => console.log(`Editing note ${item.id}`)}
-        //           style={styles.createButton}
-        //         >
-        //           <Text>✏️</Text>
-        //         </TouchableOpacity>
-        //         <TouchableOpacity
-        //           onPress={() => console.log(`Deleting note ${item.id}`)}
-        //           style={styles.createButton}
-        //         >
-        //           <Text>🗑️</Text>
-        //         </TouchableOpacity>
-        //       </View>
-        //     </View>
-        //   )}
-        // />
       )}
-      {/* <Link href="/auth">
-        <Text>Go to Login</Text>
-      </Link> */}
     </View>
   );
 };
@@ -226,16 +193,19 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   searchIcon: {
+    position: "absolute",
     fontSize: 18,
     color: "#666",
     paddingLeft: 12,
   },
   searchInput: {
     flex: 1,
+    marginLeft: 30, // Adjusted to account for the icon
     padding: 12,
     fontSize: 16,
     backgroundColor: "transparent",
     borderWidth: 0,
+    color: "#000",
   },
   noResultsContainer: {
     flex: 1,
