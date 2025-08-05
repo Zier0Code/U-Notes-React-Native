@@ -3,7 +3,7 @@ import NoteItem from "./NoteItem";
 
 const NoteList = ({ notes, onDelete, onEdit }) => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={notes}
         keyExtractor={(item) => item.id.toString()}
@@ -15,6 +15,8 @@ const NoteList = ({ notes, onDelete, onEdit }) => {
             noteIndex={index}
           />
         )}
+        contentContainerStyle={{ paddingBottom: 100 }}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
